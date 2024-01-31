@@ -11,8 +11,8 @@ namespace Shared.Repositories
         public IEnumerable<TEntity> Get();
         public TEntity Get(TId id);
         public TId Insert(TEntity data);
-        public TId Update(TEntity data);
-        public TId Delete(TId id);
+        public void Update(TEntity data);
+        public void Delete(TId id);
 
     }
 }
