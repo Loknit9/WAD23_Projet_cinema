@@ -21,7 +21,7 @@ namespace ASP_cinema.Controllers
             return View(model);
         }
 
-        // GET: CinemPlaceController/Details/id
+        // GET: CinemPlaceController/Details/5
         public ActionResult Details(int id) 
         { 
             return View();
