@@ -1,4 +1,6 @@
 using Shared.Repositories;
+using BLL = BLL_cinema;
+using DAL = DAL_cinema;
 
 namespace ASP_cinema
 {
@@ -13,8 +15,8 @@ namespace ASP_cinema
 
             // Ajout services par injection de dépendance:
             
-            builder.Services.AddScoped<ICinemaPlaceRepository<BLL_cinema.Entities.CinemaPlace>, BLL_cinema.Services.CinemaPlaceService>();
-            builder.Services.AddScoped<ICinemaPlaceRepository<DAL_cinema.Entities.CinemaPlace>, DAL_cinema.Services.CinemaPlaceService>();
+            builder.Services.AddScoped<ICinemaPlaceRepository<BLL.Entities.CinemaPlace>, BLL.Services.CinemaPlaceService>();
+            builder.Services.AddScoped<ICinemaPlaceRepository<DAL.Entities.CinemaPlace>, DAL.Services.CinemaPlaceService>();
 
 
 

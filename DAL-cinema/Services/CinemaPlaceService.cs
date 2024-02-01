@@ -46,6 +46,7 @@ namespace DAL_cinema.Services
                 using SqlCommand command = connection.CreateCommand();
                 command.CommandText = "SP_CinemaPlaceGetById";
                 command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("id_cinemaplace", id);
                 connection.Open();
                 using (SqlDataReader reader = command.ExecuteReader())
                 {

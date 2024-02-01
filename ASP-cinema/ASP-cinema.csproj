@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BLL_cinema\BLL_cinema.csproj" />
     <ProjectReference Include="..\DAL-cinema\DAL-cinema.csproj" />
+    <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
