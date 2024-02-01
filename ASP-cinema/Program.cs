@@ -1,3 +1,5 @@
+using Shared.Repositories;
+
 namespace ASP_cinema
 {
     public class Program
@@ -8,6 +10,14 @@ namespace ASP_cinema
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // Ajout services par injection de dépendance:
+            
+            builder.Services.AddScoped<ICinemaPlaceRepository<BLL_cinema.Entities.CinemaPlace>, BLL_cinema.Services.CinemaPlaceService>();
+            builder.Services.AddScoped<ICinemaPlaceRepository<DAL_cinema.Entities.CinemaPlace>, DAL_cinema.Services.CinemaPlaceService>();
+
+
+
 
             var app = builder.Build();
 

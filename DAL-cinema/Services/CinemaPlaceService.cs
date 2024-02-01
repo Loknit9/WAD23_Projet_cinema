@@ -22,15 +22,17 @@ namespace DAL_cinema.Services
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                using SqlCommand command = connection.CreateCommand();
-                command.CommandText = "SP_CinemaPlace_GetAll";
-                command.CommandType = CommandType.StoredProcedure;
-                connection.Open();
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqlCommand command = connection.CreateCommand())
                 {
-                    while (reader.Read())
+                    command.CommandText = "SP_CinemaPlace_GetAll";
+                    command.CommandType = CommandType.StoredProcedure;
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        yield return reader.ToCinemaPlace();
+                        while (reader.Read())
+                        {
+                            yield return reader.ToCinemaPlace();
+                        }
                     }
                 }
             }
