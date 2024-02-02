@@ -19,7 +19,7 @@ namespace DAL_cinema.Mappers
                 Name = (string)record["Name"],
                 City = (string)record["City"],
                 Street = (string)record["Street"],
-                Number = (int)record["Number"]
+                Number = (string)record["Number"]
             };
         }
     }

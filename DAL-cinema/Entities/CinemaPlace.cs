@@ -16,7 +16,7 @@ namespace DAL_cinema.Entities
 
         public string Street { get; set; }
 
-        public int Number {  get; set; }
+        public string Number {  get; set; }
 
     }
 }

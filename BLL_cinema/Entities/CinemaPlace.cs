@@ -15,10 +15,10 @@ namespace BLL_cinema.Entities
 
         public string Street { get; private set; }
 
-        public int Number { get; private set; }
+        public string Number { get; private set; }
 
 
-        public CinemaPlace (int id_cinemaplace, string name, string city, string street, int number)
+        public CinemaPlace (int id_cinemaplace, string name, string city, string street, string number)
         {
             Id_CinemaPlace = id_cinemaplace;
             Name = name;

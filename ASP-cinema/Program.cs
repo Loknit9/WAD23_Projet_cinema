@@ -9,12 +9,12 @@ namespace ASP_cinema
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            string test = builder.Configuration.GetConnectionString("DB-Projet-Cinema");
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
             // Ajout services par injection de dépendance:
-            
+           
             builder.Services.AddScoped<ICinemaPlaceRepository<BLL.Entities.CinemaPlace>, BLL.Services.CinemaPlaceService>();
             builder.Services.AddScoped<ICinemaPlaceRepository<DAL.Entities.CinemaPlace>, DAL.Services.CinemaPlaceService>();
 

@@ -18,6 +18,6 @@ namespace ASP_cinema.Models
         public string Street { get; set; }
 
         [DisplayName("Numero")]
-        public int Number { get; set; }
+        public string Number { get; set; }
     }
 }
