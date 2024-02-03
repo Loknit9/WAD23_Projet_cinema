@@ -4,7 +4,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>@Model.Id_CinemaPlace@(Model.Name is null ? "" : $" - {Model.Name}")</h1>
+@* <h1>@Model.Id_CinemaPlace@(Model.Name is null ? "" : $" - {Model.Name}")</h1> *@
 
 <div>
     @* <h4>CinemaPlaceDetailsViewModel</h4> *@
@@ -37,6 +37,6 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_CinemaPlace }) |
+    @* @Html.ActionLink("Edit", "Edit", new { id = Model.Id_CinemaPlace }) *@
     <a asp-action="Index">Voir la liste</a>
 </div>

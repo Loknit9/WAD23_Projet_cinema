@@ -31,6 +31,18 @@ namespace ASP_cinema.Handlers
             };
         }
 
+        public static CinemaPlace ToBLL(this CinemaPlaceCreateForm entity)
+        {
+            if (entity is null) return null;
+            return new CinemaPlace (
+                0,
+                entity.Name,
+                entity.City,
+                entity.Street,
+                entity.Numbers
+                );
+        }
+
         #endregion
     }
 }

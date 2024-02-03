@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using BLL_cinema.Entities;
 using ASP_cinema.Models;
 using ASP_cinema.Handlers;
@@ -25,6 +26,72 @@ namespace ASP_cinema.Controllers
         public ActionResult Details(int id) 
         { 
             return View();
+        }
+
+        // GET: CinemaPlaceController/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: StudentController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create (CinemaPlaceCreateForm form)
+        {
+            try
+            {
+                if (form is null) ModelState.AddModelError(nameof(form), "Pas de données reçues");
+                if (!ModelState.IsValid) throw new Exception();
+                int id = _cinemaPlaceRepository.Insert(form.ToBLL());
+                return RedirectToAction(nameof(Details), new { id });
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: CinemaPlaceController/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: CinemaPlaceController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: CinemaPlaceController/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: CinemaPlaceController/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
     
