@@ -7,4 +7,4 @@ AS
 			[Street],
 			[Number]
 		FROM [CinemaPlace]
-		WHERE [Id_CinemaPlace] = @id_cinemaplace
+		WHERE [Id_CinemaPlace] = @id_cinemaplace;

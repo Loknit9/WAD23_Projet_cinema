@@ -23,9 +23,10 @@ namespace ASP_cinema.Controllers
         }
 
         // GET: CinemPlaceController/Details/5
-        public ActionResult Details(int id) 
+        public ActionResult Details(int id_cinemaplace) 
         { 
-            return View();
+            CinemaPlaceDetailsViewModel model = _cinemaPlaceRepository.Get(id_cinemaplace).ToDetails();
+            return View(model);
         }
 
         // GET: CinemaPlaceController/Create
