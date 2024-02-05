@@ -77,16 +77,18 @@ namespace DAL_cinema.Services
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 using SqlCommand command = connection.CreateCommand();
-                command.CommandText = "SP_CinemaPlace_Update";
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("Id_cinemaplace", data.Id_CinemaPlace);
-                command.Parameters.AddWithValue("Name", data.Name);
-                command.Parameters.AddWithValue("City", data.City);
-                command.Parameters.AddWithValue("Street", data.Street);
-                command.Parameters.AddWithValue("Number", data.Number);
-                connection.Open();
-                if (command.ExecuteNonQuery() <= 0)
-                    throw new ArgumentException(nameof(data.Id_CinemaPlace), $"L'identifiant {data.Id_CinemaPlace} n'est pas das la base de données");
+                {
+                    command.CommandText = "SP_CinemaPlace_Update";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("Id_cinemaplace", data.Id_CinemaPlace);
+                    command.Parameters.AddWithValue("Name", data.Name);
+                    command.Parameters.AddWithValue("City", data.City);
+                    command.Parameters.AddWithValue("Street", data.Street);
+                    command.Parameters.AddWithValue("Number", data.Number);
+                    connection.Open();
+                    if (command.ExecuteNonQuery() <= 0)
+                        throw new ArgumentException(nameof(data.Id_CinemaPlace), $"L'identifiant {data.Id_CinemaPlace} n'est pas das la base de données");
+                }
             }
         }
 
@@ -97,7 +99,7 @@ namespace DAL_cinema.Services
                 using SqlCommand command = connection.CreateCommand();
                 command.CommandText = "SP_CinemaPlace_Delete";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("id", id);
+                command.Parameters.AddWithValue("Id_cinemaplace", id);
                 connection.Open();
                 if (command.ExecuteNonQuery() <= 0)
                     throw new ArgumentException(nameof(id), $"L'identifiant {id} n'est pas das la base de données");

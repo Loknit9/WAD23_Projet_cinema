@@ -26,6 +26,7 @@ namespace BLL_cinema.Entities
             Street = street;
             Number = number;
         }
+
     }
 
 }

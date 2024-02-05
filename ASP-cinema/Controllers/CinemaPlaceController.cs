@@ -5,6 +5,7 @@ using ASP_cinema.Models;
 using ASP_cinema.Handlers;
 using Shared.Repositories;
 using System.Reflection;
+using static System.Collections.Specialized.BitVector32;
 
 namespace ASP_cinema.Controllers
 {
@@ -57,9 +58,18 @@ namespace ASP_cinema.Controllers
         // GET: CinemaPlaceController/Edit/5
         public ActionResult Edit(int id)
         {
-            CinemaPlaceEditForm model = _cinemaPlaceRepository.Get(id).ToEdit();
-            if (model is null) throw new ArgumentOutOfRangeException(nameof(id), $"Pas de cinema avec l'identifiant {id}");
-            return View(model);
+            try
+            {
+                CinemaPlaceEditForm model = _cinemaPlaceRepository.Get(id).Update();
+                if (model is null) throw new ArgumentOutOfRangeException(nameof(id), $"Pas de cinema avec l'identifiant {id}");
+                return RedirectToAction(nameof(Index), new { id });
+
+            }
+
+            catch
+            {
+                return View();
+            }
         }
 
         // POST: CinemaPlaceController/Edit/5
@@ -69,32 +79,45 @@ namespace ASP_cinema.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (form is null) ModelState.AddModelError(nameof(form), "Pas de données reçues");
+                if (!ModelState.IsValid) throw new Exception();
+
+                _cinemaPlaceRepository.Update(form.ToBLL());
+                return RedirectToAction(nameof(Details), new {id});
+    
             }
             catch
             {
-                return View();
+                return View(form);
             }
         }
 
         // GET: CinemaPlaceController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            CinemaPlaceDeleteViewModel model = _cinemaPlaceRepository.Get(id).Delete();
+            if (model is null) throw new ArgumentOutOfRangeException(nameof(id), $"Pas de cinema avec l'identifiant {id}");
+            return View(model);
         }
 
         // POST: CinemaPlaceController/Delete/5
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, CinemaPlaceEditForm form)
+        public ActionResult Delete(int id, CinemaPlaceDeleteViewModel form)
         {
             try
             {
+                if (form is null) ModelState.AddModelError(nameof(form), "Pas de données reçues");
+                CinemaPlace data = _cinemaPlaceRepository.Get(id);
+                if (data is null) ModelState.AddModelError(nameof(id), "Pas de cinema avec cet identifiant");
+                if (!ModelState.IsValid) throw new Exception();
+
+                _cinemaPlaceRepository.Delete(data.ToBLL());
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View(form);
             }
         }
     }

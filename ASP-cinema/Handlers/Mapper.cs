@@ -44,7 +44,7 @@ namespace ASP_cinema.Handlers
                 );
         }
 
-        public static CinemaPlaceEditForm ToEdit(this CinemaPlace entity)
+        public static CinemaPlaceEditForm Update(this CinemaPlace entity)
         {
             if (entity is null) return null;
             return new CinemaPlaceEditForm()
@@ -54,6 +54,31 @@ namespace ASP_cinema.Handlers
                 City = entity.City,
                 Street = entity.Street,
                 Number = entity.Number
+            };
+        }
+
+        public static CinemaPlace ToBLL(this CinemaPlaceEditForm entity)
+        {
+            if (entity is null) return null;
+            return new CinemaPlace(
+                entity.Id_CinemaPlace,
+                entity.Name,
+                entity.City,
+                entity.Street,
+                entity.Number
+            );
+        }
+
+        public static CinemaPlaceDeleteViewModel Delete(this CinemaPlace entity)
+        {
+            if (entity is null) return null;
+            return new CinemaPlaceDeleteViewModel()
+            {
+                Id_CinemaPlace = entity.Id_CinemaPlace,
+                Name = entity.Name,
+                City = entity.City,
+                Street = entity.Street,
+                Number = entity.Number,
             };
         }
 
