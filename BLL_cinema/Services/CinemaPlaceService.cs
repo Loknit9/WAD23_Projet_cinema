@@ -23,9 +23,9 @@ namespace BLL_cinema.Services
             return _repository.Get().Select(d => d.ToBLL());
         }
 
-        public CinemaPlace Get (int id_cinemaplace)
+        public CinemaPlace Get (int id)
         {
-            return _repository.Get(id_cinemaplace).ToBLL();
+            return _repository.Get(id).ToBLL();
         }
 
         public int Insert(CinemaPlace data)

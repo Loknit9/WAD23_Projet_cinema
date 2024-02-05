@@ -79,7 +79,7 @@ namespace DAL_cinema.Services
                 using SqlCommand command = connection.CreateCommand();
                 command.CommandText = "SP_CinemaPlace_Update";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("id", data.Id_CinemaPlace);
+                command.Parameters.AddWithValue("Id_cinemaplace", data.Id_CinemaPlace);
                 command.Parameters.AddWithValue("Name", data.Name);
                 command.Parameters.AddWithValue("City", data.City);
                 command.Parameters.AddWithValue("Street", data.Street);

@@ -1,16 +1,17 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ASP_cinema.Models
 {
-    public class CinemaPlaceCreateForm
+    public class CinemaPlaceEditForm
     {
+        [HiddenInput]
+        [Required]
+        public int Id_CinemaPlace { get; set; }
 
         [DisplayName("Nom")]
-        [Required(ErrorMessage = "Le nom est obligatoire.")]
-        [MaxLength(64, ErrorMessage = "Le nom ne peut dépasser 64 caractères.")]
-        [MinLength(2, ErrorMessage = "Le nom doit avoir au minimum 2 caractères.")]
-
+        [Required]
         public string Name { get; set; }
 
 

@@ -1,6 +1,7 @@
 ﻿using ASP_cinema.Models;
 using BLL_cinema.Entities;
 using System.Runtime.CompilerServices;
+using System.Reflection;
 
 namespace ASP_cinema.Handlers
 {
@@ -39,8 +40,21 @@ namespace ASP_cinema.Handlers
                 entity.Name,
                 entity.City,
                 entity.Street,
-                entity.Numbers
+                entity.Number
                 );
+        }
+
+        public static CinemaPlaceEditForm ToEdit(this CinemaPlace entity)
+        {
+            if (entity is null) return null;
+            return new CinemaPlaceEditForm()
+            {
+                Id_CinemaPlace = entity.Id_CinemaPlace,
+                Name = entity.Name,
+                City = entity.City,
+                Street = entity.Street,
+                Number = entity.Number
+            };
         }
 
         #endregion

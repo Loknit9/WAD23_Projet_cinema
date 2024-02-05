@@ -4,6 +4,7 @@ using BLL_cinema.Entities;
 using ASP_cinema.Models;
 using ASP_cinema.Handlers;
 using Shared.Repositories;
+using System.Reflection;
 
 namespace ASP_cinema.Controllers
 {
@@ -23,9 +24,9 @@ namespace ASP_cinema.Controllers
         }
 
         // GET: CinemPlaceController/Details/5
-        public ActionResult Details(int id_cinemaplace) 
+        public ActionResult Details(int id) 
         { 
-            CinemaPlaceDetailsViewModel model = _cinemaPlaceRepository.Get(id_cinemaplace).ToDetails();
+            CinemaPlaceDetailsViewModel model = _cinemaPlaceRepository.Get(id).ToDetails();
             return View(model);
         }
 
@@ -56,13 +57,15 @@ namespace ASP_cinema.Controllers
         // GET: CinemaPlaceController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            CinemaPlaceEditForm model = _cinemaPlaceRepository.Get(id).ToEdit();
+            if (model is null) throw new ArgumentOutOfRangeException(nameof(id), $"Pas de cinema avec l'identifiant {id}");
+            return View(model);
         }
 
         // POST: CinemaPlaceController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, CinemaPlaceEditForm form)
         {
             try
             {
@@ -83,7 +86,7 @@ namespace ASP_cinema.Controllers
         // POST: CinemaPlaceController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, CinemaPlaceEditForm form)
         {
             try
             {
