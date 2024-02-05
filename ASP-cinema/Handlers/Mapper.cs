@@ -69,7 +69,7 @@ namespace ASP_cinema.Handlers
             );
         }
 
-        public static CinemaPlaceDeleteViewModel ToDelete(this CinemaPlace entity)
+        public static CinemaPlaceDeleteViewModel Delete(this CinemaPlace entity)
         {
             if (entity is null) return null;
             return new CinemaPlaceDeleteViewModel()

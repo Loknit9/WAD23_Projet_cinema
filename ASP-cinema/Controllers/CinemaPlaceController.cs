@@ -95,7 +95,7 @@ namespace ASP_cinema.Controllers
 
             try
             {
-                CinemaPlaceDeleteViewModel model = _cinemaPlaceRepository.SingleOrDefault(d => d.Id_CinemaPlace == id).ToDelete();
+                CinemaPlaceDeleteViewModel model = _cinemaPlaceRepository.Get(id).Delete();
                 if (model is null) throw new InvalidDataException();
                 return View(model);
             }
@@ -115,7 +115,7 @@ namespace ASP_cinema.Controllers
         {
             try
             {
-                _cinemaPlaceRepository.Remove(_cinemaPlaceRepository.SingleOrDefault(d =>d.Id_CinemaPlace == id));
+                _cinemaPlaceRepository.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
