@@ -69,7 +69,7 @@ namespace ASP_cinema.Handlers
             );
         }
 
-        public static CinemaPlaceDeleteViewModel Delete(this CinemaPlace entity)
+        public static CinemaPlaceDeleteViewModel ToDelete(this CinemaPlace entity)
         {
             if (entity is null) return null;
             return new CinemaPlaceDeleteViewModel()
@@ -81,6 +81,7 @@ namespace ASP_cinema.Handlers
                 Number = entity.Number,
             };
         }
+
 
         #endregion
     }

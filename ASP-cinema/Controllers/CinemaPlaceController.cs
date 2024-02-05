@@ -63,7 +63,6 @@ namespace ASP_cinema.Controllers
                 CinemaPlaceEditForm model = _cinemaPlaceRepository.Get(id).Update();
                 if (model is null) throw new ArgumentOutOfRangeException(nameof(id), $"Pas de cinema avec l'identifiant {id}");
                 return RedirectToAction(nameof(Index), new { id });
-
             }
 
             catch
@@ -81,10 +80,8 @@ namespace ASP_cinema.Controllers
             {
                 if (form is null) ModelState.AddModelError(nameof(form), "Pas de données reçues");
                 if (!ModelState.IsValid) throw new Exception();
-
                 _cinemaPlaceRepository.Update(form.ToBLL());
                 return RedirectToAction(nameof(Details), new {id});
-    
             }
             catch
             {
@@ -95,29 +92,35 @@ namespace ASP_cinema.Controllers
         // GET: CinemaPlaceController/Delete/5
         public ActionResult Delete(int id)
         {
-            CinemaPlaceDeleteViewModel model = _cinemaPlaceRepository.Get(id).Delete();
-            if (model is null) throw new ArgumentOutOfRangeException(nameof(id), $"Pas de cinema avec l'identifiant {id}");
-            return View(model);
+
+            try
+            {
+                CinemaPlaceDeleteViewModel model = _cinemaPlaceRepository.SingleOrDefault(d => d.Id_CinemaPlace == id).ToDelete();
+                if (model is null) throw new InvalidDataException();
+                return View(model);
+            }
+
+            catch (Exception) 
+            {
+                TempData["ErrorMessage"] = $"L'identifiant {id} est invalide.";
+                return RedirectToAction(nameof(Index));
+            }
+
         }
 
         // POST: CinemaPlaceController/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, CinemaPlaceDeleteViewModel form)
+        public ActionResult Delete(int id, CinemaPlaceDeleteViewModel model)
         {
             try
             {
-                if (form is null) ModelState.AddModelError(nameof(form), "Pas de données reçues");
-                CinemaPlace data = _cinemaPlaceRepository.Get(id);
-                if (data is null) ModelState.AddModelError(nameof(id), "Pas de cinema avec cet identifiant");
-                if (!ModelState.IsValid) throw new Exception();
-
-                _cinemaPlaceRepository.Delete(data.ToBLL());
+                _cinemaPlaceRepository.Remove(_cinemaPlaceRepository.SingleOrDefault(d =>d.Id_CinemaPlace == id));
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View(form);
+                return View(model);
             }
         }
     }
