@@ -7,6 +7,7 @@ namespace ASP_cinema.Models
     public class CinemaPlaceEditForm
     {
         [HiddenInput]
+        [Required]
         [ScaffoldColumn(false)]
         public int Id_CinemaPlace { get; set; }
 

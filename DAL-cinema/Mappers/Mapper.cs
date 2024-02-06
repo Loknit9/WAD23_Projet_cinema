@@ -22,5 +22,22 @@ namespace DAL_cinema.Mappers
                 Number = (string)record["Number"]
             };
         }
+    
+
+
+    public static Movie ToMovie(this IDataRecord record)
+        {
+            if (record is null) return null;
+            return new Movie()
+            {
+                Id_Movie = (int)record["Id_Movie"],
+                Title = (string)record["Title"],
+                Subtitle = (string)record["Subtitle"],
+                Release_Year = (string)record["Release_Year"],
+                Synopsis = (string)record["Synopsis"],
+                PosterUrl = (string)record["PosterUrl"],
+                Duration = (int)record["Duration"]
+            };
+        }
     }
 }
