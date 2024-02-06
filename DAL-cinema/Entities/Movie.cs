@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DAL_cinema.Entities
 {
-    internal class Movie
+    public class Movie
     {
         public int Id_Movie { get; set; }
 
         public string Title { get; set; }
 
-        public string? Subtitle { get; set; }
+        public string? SubTitle { get; set; }
 
         public string Release_Year { get; set; }
 

@@ -62,7 +62,7 @@ namespace ASP_cinema.Controllers
             {
                 CinemaPlaceEditForm model = _cinemaPlaceRepository.Get(id).Update();
                 if (model is null) throw new ArgumentOutOfRangeException(nameof(id), $"Pas de cinema avec l'identifiant {id}");
-                return RedirectToAction(nameof(Index), new { id });
+                return View(model);
             }
 
             catch

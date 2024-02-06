@@ -32,7 +32,7 @@ namespace DAL_cinema.Mappers
             {
                 Id_Movie = (int)record["Id_Movie"],
                 Title = (string)record["Title"],
-                Subtitle = (string)record["Subtitle"],
+                SubTitle = (string)record["Subtitle"],
                 Release_Year = (string)record["Release_Year"],
                 Synopsis = (string)record["Synopsis"],
                 PosterUrl = (string)record["PosterUrl"],

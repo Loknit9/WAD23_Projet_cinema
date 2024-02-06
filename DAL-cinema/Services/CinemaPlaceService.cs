@@ -60,15 +60,17 @@ namespace DAL_cinema.Services
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                using SqlCommand command = connection.CreateCommand();
-                command.CommandText = "SP_CinemaPlace_Insert";
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("Name", data.Name);
-                command.Parameters.AddWithValue("City", data.City);
-                command.Parameters.AddWithValue("Street", data.Street);
-                command.Parameters.AddWithValue("Number", data.Number);
-                connection.Open();
-                return (int)command.ExecuteScalar();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                   command.CommandText = "SP_CinemaPlace_Insert";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("Name", data.Name);
+                    command.Parameters.AddWithValue("City", data.City);
+                    command.Parameters.AddWithValue("Street", data.Street);
+                    command.Parameters.AddWithValue("Number", data.Number);
+                    connection.Open();
+                    return (int)command.ExecuteScalar();
+                }
             }
         }
 
@@ -76,7 +78,7 @@ namespace DAL_cinema.Services
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                using SqlCommand command = connection.CreateCommand();
+                using (SqlCommand command = connection.CreateCommand())
                 {
                     command.CommandText = "SP_CinemaPlace_Update";
                     command.CommandType = CommandType.StoredProcedure;
@@ -96,13 +98,16 @@ namespace DAL_cinema.Services
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                using SqlCommand command = connection.CreateCommand();
-                command.CommandText = "SP_CinemaPlace_Delete";
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_CinemaPlace_Delete";
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("Id_cinemaplace", id);
                 connection.Open();
                 if (command.ExecuteNonQuery() <= 0)
                     throw new ArgumentException(nameof(id), $"L'identifiant {id} n'est pas das la base de données");
+
+                }
             }
         }
     }
