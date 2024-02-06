@@ -66,7 +66,7 @@ namespace DAL_cinema.Services
                     command.CommandText = "SP_Movie_Insert";
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("Title", data.Title);
-                    command.Parameters.AddWithValue("SubTitle", data.SubTitle);
+                    command.Parameters.AddWithValue("SubTitle", data.SubTitle ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("Release_Year", data.Release_Year);
                     command.Parameters.AddWithValue("Synopsis", data.Synopsis);
                     command.Parameters.AddWithValue("PosterUrl", data.PosterUrl);
@@ -87,7 +87,7 @@ namespace DAL_cinema.Services
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("Id_Movie", data.Id_Movie);
                     command.Parameters.AddWithValue("Title", data.Title);
-                    command.Parameters.AddWithValue("SubTitle", data.SubTitle);
+                    command.Parameters.AddWithValue("SubTitle", data.SubTitle ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("Release_Year", data.Release_Year);
                     command.Parameters.AddWithValue("Synopsis", data.Synopsis);
                     command.Parameters.AddWithValue("PosterUrl", data.PosterUrl);
