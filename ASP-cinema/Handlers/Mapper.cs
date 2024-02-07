@@ -129,10 +129,10 @@ namespace ASP_cinema.Handlers
             );
         }
 
-        public static MovieEditform Update(this Movie entity)
+        public static MovieEditForm Update(this Movie entity)
         {
             if (entity is null) return null;
-            return new MovieEditform()
+            return new MovieEditForm()
             {
                 Id_Movie = entity.Id_Movie,
                 Title = entity.Title,
