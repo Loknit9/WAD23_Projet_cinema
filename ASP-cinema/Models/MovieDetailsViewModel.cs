@@ -15,7 +15,7 @@ namespace ASP_cinema.Models
         public string? SubTitle { get; set; }
 
         [DisplayName("Année de sortie")]
-        public short Release_Year { get; set; }
+        public short ReleaseYear { get; set; }
 
         [DisplayName("Résumé")]
         public string Synopsis { get; set; }

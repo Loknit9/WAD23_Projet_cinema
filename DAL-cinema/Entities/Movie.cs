@@ -14,7 +14,7 @@ namespace DAL_cinema.Entities
 
         public string? SubTitle { get; set; }
 
-        public short Release_Year { get; set; }
+        public short ReleaseYear { get; set; }
 
         public string Synopsis { get; set; }
 

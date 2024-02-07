@@ -5,13 +5,14 @@ using Microsoft.AspNetCore.Mvc;
 using Shared.Repositories;
 using ASP_cinema.Handlers;
 using System.Reflection;
+using static System.Collections.Specialized.BitVector32;
 
 namespace ASP_cinema.Controllers
 {
     public class MovieController : Controller
     {
         private readonly IMovieRepository<Movie> _movieRepository;
-        private MovieController(IMovieRepository<Movie> movieRepository)
+        public MovieController(IMovieRepository<Movie> movieRepository)
         {
             _movieRepository = movieRepository;
         }

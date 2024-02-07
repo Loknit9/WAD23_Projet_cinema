@@ -45,7 +45,7 @@ namespace BLL_cinema.Mappers
                 entity.Id_Movie,
                 entity.Title,
                 entity.SubTitle,
-                entity.Release_Year,
+                entity.ReleaseYear,
                 entity.Synopsis,
                 entity.PosterUrl,
                 entity.Duration);
@@ -59,7 +59,7 @@ namespace BLL_cinema.Mappers
                 Id_Movie = entity.Id_Movie,
                 Title = entity.Title,
                 SubTitle = entity.SubTitle,
-                Release_Year = entity.Release_Year,
+                ReleaseYear = entity.ReleaseYear,
                 Synopsis = entity.Synopsis,
                 PosterUrl = entity.PosterUrl,
                 Duration = entity.Duration

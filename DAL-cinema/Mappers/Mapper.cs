@@ -33,7 +33,7 @@ namespace DAL_cinema.Mappers
                 Id_Movie = (int)record["Id_Movie"],
                 Title = (string)record["Title"],
                 SubTitle = (record["SubTitle"] == DBNull.Value) ? null : (string?)record["SubTitle"],
-                Release_Year = (short)record["Release_Year"],
+                ReleaseYear = (short)record["ReleaseYear"],
                 Synopsis = (string)record["Synopsis"],
                 PosterUrl = (string)record["PosterUrl"],
                 Duration = (int)record["Duration"]

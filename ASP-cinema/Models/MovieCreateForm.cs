@@ -20,7 +20,7 @@ namespace ASP_cinema.Models
         [Required(ErrorMessage = "L'année de sortie est obligatoire.")]
         
         [Range(1800, int.MaxValue, ErrorMessage = "L'année de sortie doit être comprise entre 1800 et l'année en cours")]
-        public short Release_Year { get; set; }
+        public short ReleaseYear { get; set; }
 
         [DisplayName("Résumé")]
         [Required(ErrorMessage = "Le résumé est obligatoire.")]

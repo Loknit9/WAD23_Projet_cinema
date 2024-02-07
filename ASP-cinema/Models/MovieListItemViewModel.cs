@@ -14,7 +14,7 @@ namespace ASP_cinema.Models
         [DisplayName("Durée")]
         public int Duration { get; set; }
 
-        [DataType(DataType.ImageUrl)]
+        //[DataType(DataType.ImageUrl)]
         public string PosterUrl { get; set; }
 
     }
