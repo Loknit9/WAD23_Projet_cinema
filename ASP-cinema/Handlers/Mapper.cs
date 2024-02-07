@@ -35,7 +35,7 @@ namespace ASP_cinema.Handlers
         public static CinemaPlace ToBLL(this CinemaPlaceCreateForm entity)
         {
             if (entity is null) return null;
-            return new CinemaPlace (
+            return new CinemaPlace(
                 0,
                 entity.Name,
                 entity.City,
@@ -83,6 +83,38 @@ namespace ASP_cinema.Handlers
         }
 
 
+        #endregion
+
+        #region Movie
+
+        public static MovieListItemViewModel ToListItem(this Movie entity)
+        {
+            if (entity is null) return null;
+            return new MovieListItemViewModel()
+            {
+                Id_Movie = entity.Id_Movie,
+                Title = entity.Title,
+                Duration = entity.Duration,
+                PosterUrl = entity.PosterUrl 
+            };
+        }
+
+        public static MovieDetailsViewModel ToDetails (this Movie entity)
+        {
+            if (entity is null) return null;
+            return new MovieDetailsViewModel()
+            {
+                Id_Movie = entity.Id_Movie,
+                Title = entity.Title,
+                SubTitle = entity.SubTitle,
+
+                Duration = entity.Duration,
+
+
+            }
+        }
+
+       
         #endregion
     }
 }

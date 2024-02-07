@@ -11,7 +11,7 @@ namespace BLL_cinema.Entities
         public int Id_Movie { get; private set; }
         public string Title { get; private set; }
         public string? SubTitle { get; set; }
-        public int Release_Year { get; private set; }
+        public short Release_Year { get; private set; }
         public string Synopsis { get; private set; }
         public string PosterUrl { get; private set; }
         public int Duration { get; private set; }
