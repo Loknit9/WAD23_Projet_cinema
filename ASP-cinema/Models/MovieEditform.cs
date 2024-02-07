@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ASP_cinema.Models
 {
-    public class MovieEditform
+    public class MovieEditForm
     {
         [HiddenInput]
         [Required]

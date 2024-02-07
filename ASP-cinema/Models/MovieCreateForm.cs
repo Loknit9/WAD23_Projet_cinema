@@ -27,14 +27,15 @@ namespace ASP_cinema.Models
         [MinLength(180, ErrorMessage = "Le résumé doit avoir au minimum 180 caractères.")]
         public string Synopsis { get; set; }
 
+        [DataType(DataType.ImageUrl)]
+        [Required(ErrorMessage = "Le poster est obligatoire.")]
+        public string PosterUrl { get; set; }
+
         [DisplayName("Durée")]
         [Required(ErrorMessage = "La durée est obligatoire.")]
         [Range(10, 420, ErrorMessage = "La durée doit être comprise entre 10 et 420 minutes")]
         public int Duration { get; set; }
 
-        [DataType(DataType.ImageUrl)]
-        [Required(ErrorMessage = "Le poster est obligatoire.")]
-        public string PosterUrl { get; set; }
     }
 }
 
