@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,10 +23,10 @@ namespace DAL_cinema.Mappers
                 Number = (string)record["Number"]
             };
         }
-    
 
 
-    public static Movie ToMovie(this IDataRecord record)
+
+        public static Movie ToMovie(this IDataRecord record)
         {
             if (record is null) return null;
             return new Movie()
@@ -37,6 +38,23 @@ namespace DAL_cinema.Mappers
                 Synopsis = (string)record["Synopsis"],
                 PosterUrl = (string)record["PosterUrl"],
                 Duration = (int)record["Duration"]
+            };
+        }
+
+
+        public static CinemaRoom ToCinemaRoom(this IDataRecord record)
+        {
+            if (record is null) return null;
+            return new CinemaRoom()
+            {
+                Id_CinemaRoom = (int)record["Id_CinemaRoom"],
+                SeatsCount = (int)record["SeatsCount"],
+                Number = (int)record["Number"],
+                ScreenWidth = (int)record["ScreenWidth"],
+                ScreenHeight = (int)record["ScreenHeight"],
+                Can3D = (bool)record["Can3D"],
+                Can4DX = (bool)record["Can4DX"],
+                Id_CinemaPlace = (int)record["Id_CinemaPlace"]
             };
         }
     }
