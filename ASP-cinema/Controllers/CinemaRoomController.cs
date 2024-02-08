@@ -20,7 +20,7 @@ namespace ASP_cinema.Controllers
         public ActionResult Index()
         {
             IEnumerable<CinemaRoomListItemViewModel> model = _cinemaRoomRepository.Get().Select(d => d.ToListItem());
-            return View();
+            return View(model);
         }
 
         // GET: CinemaRoomController/Details/5

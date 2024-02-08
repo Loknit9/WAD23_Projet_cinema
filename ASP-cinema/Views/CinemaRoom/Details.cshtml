@@ -46,15 +46,9 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Can4DX)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Id_CinemaPlace)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id_CinemaPlace)
-        </dd>
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { id = item.Id_CinemaRoom }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_CinemaRoom }) |
     <a asp-action="Index">Back to List</a>
 </div>

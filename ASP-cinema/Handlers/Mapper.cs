@@ -203,8 +203,7 @@ namespace ASP_cinema.Handlers
                 ScreenWidth = entity.ScreenWidth,
                 ScreenHeight = entity.ScreenHeight,
                 Can3D = entity.Can3D,
-                Can4DX = entity.Can4DX,
-                Id_CinemaPlace = entity.Id_CinemaPlace
+                Can4DX = entity.Can4DX
             };
         }
 

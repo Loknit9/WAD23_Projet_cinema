@@ -26,9 +26,5 @@ namespace ASP_cinema.Models.CinemaRoom
 
         [DisplayName("Projection 4DX")]
         public bool Can4DX { get; set; }
-
-        [DisplayName("Cinema")]
-        [HiddenInput]
-        public int Id_CinemaPlace { get; set; }
     }
 }

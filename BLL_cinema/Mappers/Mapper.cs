@@ -80,8 +80,7 @@ namespace BLL_cinema.Mappers
                 entity.ScreenWidth,
                 entity.ScreenHeight,
                 entity.Can3D,
-                entity.Can4DX,
-                entity.Id_CinemaPlace);
+                entity.Can4DX);
         }
 
         public static DAL.CinemaRoom ToDAL(this BLL.CinemaRoom entity)
@@ -95,8 +94,7 @@ namespace BLL_cinema.Mappers
                 ScreenWidth = entity.ScreenWidth,
                 ScreenHeight = entity.ScreenHeight,
                 Can3D = entity.Can3D,
-                Can4DX = entity.Can4DX,
-                Id_CinemaPlace = entity.Id_CinemaPlace
+                Can4DX = entity.Can4DX
 
             };
                 
