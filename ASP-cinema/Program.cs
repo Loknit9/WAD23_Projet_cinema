@@ -18,12 +18,13 @@ namespace ASP_cinema
             builder.Services.AddScoped<ICinemaPlaceRepository<BLL.Entities.CinemaPlace>, BLL.Services.CinemaPlaceService>();
             builder.Services.AddScoped<IMovieRepository<BLL.Entities.Movie>, BLL.Services.MovieService>();
             builder.Services.AddScoped<ICinemaRoomRepository<BLL.Entities.CinemaRoom>, BLL.Services.CinemaRoomService>();
+            builder.Services.AddScoped<IDiffusionRepository<BLL.Entities.Diffusion>, BLL.Services.DiffusionService>();
+
 
             builder.Services.AddScoped<ICinemaPlaceRepository<DAL.Entities.CinemaPlace>, DAL.Services.CinemaPlaceService>();
             builder.Services.AddScoped<IMovieRepository<DAL.Entities.Movie>, DAL.Services.MovieService>();
             builder.Services.AddScoped<ICinemaRoomRepository<DAL.Entities.CinemaRoom>, DAL.Services.CinemaRoomService>();
-
-
+            builder.Services.AddScoped<IDiffusionRepository<DAL.Entities.Diffusion>, DAL.Services.DiffusionService>();
 
 
             var app = builder.Build();

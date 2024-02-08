@@ -4,6 +4,7 @@ using System.Reflection;
 using ASP_cinema.Models.CinemaPlace;
 using ASP_cinema.Models.Movie;
 using ASP_cinema.Models.CinemaRoom;
+using ASP_cinema.Models.Diffusion;
 
 namespace ASP_cinema.Handlers
 {
@@ -204,6 +205,33 @@ namespace ASP_cinema.Handlers
                 ScreenHeight = entity.ScreenHeight,
                 Can3D = entity.Can3D,
                 Can4DX = entity.Can4DX
+            };
+        }
+
+        #endregion
+
+        #region Diffusion
+        public static DiffusionListItemViewModel ToListItem (this Diffusion entity)
+        {
+            if (entity is null) return null;
+            return new DiffusionListItemViewModel()
+            {
+                Id_Diffusion = entity.Id_Diffusion,
+                DiffusionDate = entity.DiffusionDate,
+                DiffusionTime = entity.DiffusionTime
+            };
+        }
+
+        public static DiffusionDetailsViewModel ToDetails(this Diffusion entity)
+        {
+            if (entity is null) return null;
+            return new DiffusionDetailsViewModel()
+            {
+                Id_Diffusion = entity.Id_Diffusion,
+                DiffusionDate = entity.DiffusionDate,
+                DiffusionTime = entity.DiffusionTime,
+                AudioLang = entity.AudioLang,
+                SubTitleLang = entity.SubTitleLang
             };
         }
 
