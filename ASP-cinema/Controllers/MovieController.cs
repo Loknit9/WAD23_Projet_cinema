@@ -1,11 +1,11 @@
-﻿using ASP_cinema.Models;
-using BLL_cinema.Entities;
+﻿using BLL_cinema.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Repositories;
 using ASP_cinema.Handlers;
 using System.Reflection;
 using static System.Collections.Specialized.BitVector32;
+using ASP_cinema.Models.Movie;
 
 namespace ASP_cinema.Controllers
 {
