@@ -1,7 +1,7 @@
 ﻿using BLL_cinema.Entities;
 using System.Runtime.CompilerServices;
 using System.Reflection;
-using ASP_cinema.Models.NewFolder;
+using ASP_cinema.Models.CinemaPlace;
 using ASP_cinema.Models.Movie;
 using ASP_cinema.Models.CinemaRoom;
 

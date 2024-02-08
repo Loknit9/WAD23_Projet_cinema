@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ASP_cinema.ModelsCinemaPlace
+namespace ASP_cinema.Models.CinemaPlace
 {
     public class CinemaPlaceEditForm
     {

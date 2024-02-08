@@ -5,7 +5,7 @@ using ASP_cinema.Handlers;
 using Shared.Repositories;
 using System.Reflection;
 using static System.Collections.Specialized.BitVector32;
-using ASP_cinema.Models.NewFolder;
+using ASP_cinema.Models.CinemaPlace;
 
 namespace ASP_cinema.Controllers
 {

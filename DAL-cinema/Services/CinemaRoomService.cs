@@ -54,6 +54,21 @@ namespace DAL_cinema.Services
                 }
             }
         }
+
+        public int Insert(CinemaRoom data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(CinemaRoom data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
     
 }
