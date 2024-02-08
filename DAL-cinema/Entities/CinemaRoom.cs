@@ -14,7 +14,8 @@ namespace DAL_cinema.Entities
         public int ScreenWidth { get; set; }
         public int ScreenHeight { get; set; }
         public bool Can3D { get; set; }
-
         public bool Can4DX { get; set; }
+
+        public int Id_CinemaPlace { get; set; }
     }
 }

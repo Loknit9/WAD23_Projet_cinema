@@ -56,7 +56,7 @@ namespace DAL_cinema.Services
                 connection.Open();
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    if (reader.Read()) return reader.ToDiffusion());
+                    if (reader.Read()) return reader.ToDiffusion();
                     throw new ArgumentException(nameof(id), $"L'identifiant {id} n'existe pas dans la base de données.");
                 }
             }

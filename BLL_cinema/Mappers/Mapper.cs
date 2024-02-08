@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL = DAL_cinema.Entities;
 using BLL = BLL_cinema.Entities;
+using System.Runtime.CompilerServices;
 
 namespace BLL_cinema.Mappers
 {
@@ -80,7 +81,8 @@ namespace BLL_cinema.Mappers
                 entity.ScreenWidth,
                 entity.ScreenHeight,
                 entity.Can3D,
-                entity.Can4DX);
+                entity.Can4DX,
+                entity.Id_CinemaPlace);
         }
 
         public static DAL.CinemaRoom ToDAL(this BLL.CinemaRoom entity)
@@ -94,10 +96,39 @@ namespace BLL_cinema.Mappers
                 ScreenWidth = entity.ScreenWidth,
                 ScreenHeight = entity.ScreenHeight,
                 Can3D = entity.Can3D,
-                Can4DX = entity.Can4DX
+                Can4DX = entity.Can4DX,
+                Id_CinemaPlace = entity.Id_CinemaPlace
 
             };
                 
+        }
+
+        #endregion
+
+        #region Diffusion
+
+        public static BLL.Diffusion ToBLL(this DAL.Diffusion entity)
+        {
+            if (entity is null) return null;
+            return new BLL.Diffusion(
+                entity.Id_Diffusion,
+                entity.DiffusionDate,
+                entity.DiffusionTime,
+                entity.AudioLang,
+                entity.SubTitleLang);
+        }
+
+        public static DAL.Diffusion ToDAL(this BLL.Diffusion entity)
+        {
+            if (entity is null) return null;
+            return new DAL.Diffusion()
+            {
+                Id_Diffusion = entity.Id_Diffusion,
+                DiffusionDate = entity.DiffusionDate,
+                DiffusionTime = entity.DiffusionTime,
+                AudioLang = entity.AudioLang,
+                SubTitleLang = entity.SubTitleLang
+            };
         }
 
         #endregion

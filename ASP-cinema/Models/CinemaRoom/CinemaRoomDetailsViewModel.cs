@@ -26,5 +26,8 @@ namespace ASP_cinema.Models.CinemaRoom
 
         [DisplayName("Projection 4DX")]
         public bool Can4DX { get; set; }
+
+        [ScaffoldColumn(false)]
+        public int Id_CinemaPlace {  get; set; }
     }
 }
