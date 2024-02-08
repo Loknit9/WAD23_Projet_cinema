@@ -8,7 +8,6 @@ namespace ASP_cinema.Models
     {
         [HiddenInput]
         [Required]
-        [ScaffoldColumn(false)]
         public int Id_Movie { get; set; }
 
         [DisplayName("Titre")]
