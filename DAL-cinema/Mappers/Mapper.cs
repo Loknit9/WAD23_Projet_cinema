@@ -56,5 +56,18 @@ namespace DAL_cinema.Mappers
                 Can4DX = (bool)record["Can4DX"]
             };
         }
+
+        public static Diffusion ToDiffusion(this IDataRecord record)
+        {
+            if (record is null) return null;
+            return new Diffusion()
+            {
+                Id_Diffusion = (int)record["Id_Diffusion"],
+                DiffusionDate = (DateOnly)record["DiffusionDate"],
+                DiffusionTime = (TimeOnly)record["DiffusionTime"],
+                AudioLang = (string)record["AudioLang"],
+                SubTitleLang = (record["SubTitleLang"] == DBNull.Value) ? null : (string?)record["SubTitleLang"]
+            };
+        }
     }
 }
