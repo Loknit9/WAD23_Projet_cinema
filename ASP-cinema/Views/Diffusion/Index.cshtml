@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ASP_cinema.Models.Diffusion.DiffusionListItemViewModel>
 
 @{
-    ViewData["Title"] = "Diffusion";
+    ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
@@ -12,6 +12,12 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DiffusionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiffusionTime)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -19,9 +25,15 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id_Diffusion }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Id_Diffusion }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id_Diffusion })
+                @Html.DisplayFor(modelItem => item.DiffusionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiffusionTime)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }

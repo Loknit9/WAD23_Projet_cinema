@@ -10,10 +10,10 @@ namespace ASP_cinema.Models.Diffusion
         public int Id_Diffusion { get; set; }
 
         [DisplayName("Date")]
-        public DateOnly DiffusionDate { get; set; }
+        public DateTime DiffusionDate { get; set; }
 
         [DisplayName("Heure")]
-        public TimeOnly DiffusionTime { get; set; }
+        public TimeSpan DiffusionTime { get; set; }
 
         [DisplayName("Langue audio")]
         public string AudioLang { get; set; }

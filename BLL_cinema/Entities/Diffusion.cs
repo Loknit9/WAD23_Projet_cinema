@@ -9,16 +9,16 @@ namespace BLL_cinema.Entities
     public class Diffusion
     {
         public int Id_Diffusion { get; private set; }
-        public DateOnly DiffusionDate { get; private set; }
+        public DateTime DiffusionDate { get; private set; }
 
-        public TimeOnly DiffusionTime { get; private set; }
+        public TimeSpan DiffusionTime { get; private set; }
 
         public string AudioLang { get; private set; }
 
         public string? SubTitleLang { get; private set; }
 
 
-        public Diffusion(int id_diffusion, DateOnly diffusiondate, TimeOnly diffusiontime, string audioLang, string? subtitlelang)
+        public Diffusion(int id_diffusion, DateTime diffusiondate, TimeSpan diffusiontime, string audioLang, string? subtitlelang)
         {
             Id_Diffusion = id_diffusion;
             DiffusionDate = diffusiondate;

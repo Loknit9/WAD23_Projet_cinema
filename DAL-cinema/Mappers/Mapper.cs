@@ -65,8 +65,8 @@ namespace DAL_cinema.Mappers
             return new Diffusion()
             {
                 Id_Diffusion = (int)record["Id_Diffusion"],
-                DiffusionDate = (DateOnly)record["DiffusionDate"],
-                DiffusionTime = (TimeOnly)record["DiffusionTime"],
+                DiffusionDate = (DateTime)record["DiffusionDate"],
+                DiffusionTime = (TimeSpan)record["DiffusionTime"],
                 AudioLang = (string)record["AudioLang"],
                 SubTitleLang = (record["SubTitleLang"] == DBNull.Value) ? null : (string?)record["SubTitleLang"]
             };
