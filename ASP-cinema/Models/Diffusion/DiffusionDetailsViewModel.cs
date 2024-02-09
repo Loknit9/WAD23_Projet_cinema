@@ -15,7 +15,6 @@ namespace ASP_cinema.Models.Diffusion
 
         [DisplayName("Date")]
         [DataType(DataType.Date)]
-
         public DateTime DiffusionDate { get; set; }
 
         [DisplayName("Heure")]

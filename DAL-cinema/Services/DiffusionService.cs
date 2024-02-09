@@ -19,29 +19,6 @@ namespace DAL_cinema.Services
         {
         }
 
-
-        // appel la liste des diffusions à afficher par cinema
-        public IEnumerable<Diffusion> GetByCinemaPlace(int id)
-        {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                using (SqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = "SP_Diffusion_GetByCinemaPlace";
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("Id_CinemaPlace", id);
-                    connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            yield return reader.ToDiffusion();
-                        }
-                    }
-                }
-            }
-        }
-
         public IEnumerable<Diffusion> Get()
         {
             using (SqlConnection connection = new SqlConnection(_connectionString)) 
@@ -93,7 +70,5 @@ namespace DAL_cinema.Services
         {
             throw new NotImplementedException();
         }
-
-        
     }
 }

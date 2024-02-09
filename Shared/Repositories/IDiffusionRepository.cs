@@ -8,6 +8,5 @@ namespace Shared.Repositories
 {
     public interface IDiffusionRepository<TEntity> : ICRUDRepository<TEntity, int> where TEntity : class
     {
-        public IEnumerable<TEntity> GetByCinemaPlace(int id);
     }
 }

@@ -30,11 +30,11 @@ namespace BLL_cinema.Services
             return _repository.Get(id).ToBLL();
         }
 
-        // prépare la liste des diffusions à ajouter au cinéma
-        public IEnumerable<Diffusion> GetByCinemaPlace(int id)
-        {
-            return _repository.GetByCinemaPlace(id).Select(d => d.ToBLL());
-        }
+        //// prépare la liste des diffusions à ajouter au cinéma
+        //public IEnumerable<Diffusion> GetByCinemaPlace(int id)
+        //{
+        //    return _repository.GetByCinemaPlace(id).Select(d => d.ToBLL());
+        //}
 
         public int Insert(Diffusion data)
         {
@@ -47,6 +47,11 @@ namespace BLL_cinema.Services
         }
 
         public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Diffusion> GetByCinemaPlace(int id)
         {
             throw new NotImplementedException();
         }

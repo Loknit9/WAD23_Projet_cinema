@@ -8,5 +8,6 @@ namespace Shared.Repositories
 {
     public interface ICinemaPlaceRepository<TEntity> : ICRUDRepository<TEntity, int> where TEntity : class
     {
+
     }
 }

@@ -69,6 +69,30 @@ namespace DAL_cinema.Services
         {
             throw new NotImplementedException();
         }
+
+
+        // Obtenir la liste des salles d'un cinema
+        public IEnumerable<CinemaRoom> GetByCinemaPlace(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM [CinemaRoom] WHERE [Id_CinemaPlace] = @id";
+                    command.Parameters.AddWithValue("Id_CinemaPlace", id);
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yield return reader.ToCinemaRoom();
+                        }
+                    }
+                }
+            }
+        }
+        
+        
     }
     
 }

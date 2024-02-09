@@ -32,5 +32,7 @@ namespace BLL_cinema.Entities
             Id_Movie = id_Movie;
             Id_CinemaRoom = id_CinemaRoom;
         }
+
+       
     } 
 }
