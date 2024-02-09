@@ -15,11 +15,12 @@ namespace DAL_cinema.Services
     public class DiffusionService : BaseService, IDiffusionRepository<Diffusion>
     {
 
-
         public DiffusionService(IConfiguration configuration) : base(configuration, "DB-Projet-Cinema")
         {
         }
 
+
+        // appel la liste des diffusions à afficher par cinema
         public IEnumerable<Diffusion> GetByCinemaPlace(int id)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))

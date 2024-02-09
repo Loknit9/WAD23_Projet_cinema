@@ -1,11 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ASP_cinema.Models.CinemaPlace
 {
     public class CinemaPlaceDeleteViewModel
     {
-        [ScaffoldColumn(false)]
+        [HiddenInput]
+        [Required]
         public int Id_CinemaPlace { get; set; }
 
         [DisplayName("Nom")]

@@ -6,7 +6,8 @@ namespace ASP_cinema.Models.CinemaRoom
 {
     public class CinemaRoomDetailsViewModel
     {
-        [ScaffoldColumn(false)]
+        [HiddenInput]
+        [Required]
         public int Id_CinemaRoom { get; set; }
 
         [DisplayName("Nombre de siège")]

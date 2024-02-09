@@ -1,11 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ASP_cinema.Models.Movie
 {
     public class MovieDetailsViewModel
     {
-        [ScaffoldColumn(false)]
+        [HiddenInput]
+        [Required]
         public int Id_Movie { get; set; }
 
         [DisplayName("Titre")]

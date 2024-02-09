@@ -8,9 +8,11 @@ namespace ASP_cinema.Models.Diffusion
     {
         [HiddenInput]
         [Required]
+        [ScaffoldColumn(false)]
         public int Id_Diffusion { get; set; }
 
         [DisplayName("Date")]
+        [DataType(DataType.Date)]
         public DateTime DiffusionDate { get; set; }
 
         [DisplayName("Heure")]

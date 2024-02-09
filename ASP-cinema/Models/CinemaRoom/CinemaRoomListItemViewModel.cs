@@ -1,11 +1,15 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace ASP_cinema.Models.CinemaRoom
 {
     public class CinemaRoomListItemViewModel
     {
+        [HiddenInput]
+        [Required]
         [ScaffoldColumn(false)]
+
         public int Id_CinemaRoom { get; set; }
 
         [DisplayName("Numéro de Salle")]
