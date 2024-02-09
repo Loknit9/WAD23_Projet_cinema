@@ -22,7 +22,23 @@ namespace DAL_cinema.Services
 
         public IEnumerable<Diffusion> GetByCinemaPlace(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_Diffusion_GetByCinemaPlace";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("Id_CinemaPlace", id);
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yield return reader.ToDiffusion();
+                        }
+                    }
+                }
+            }
         }
 
         public IEnumerable<Diffusion> Get()

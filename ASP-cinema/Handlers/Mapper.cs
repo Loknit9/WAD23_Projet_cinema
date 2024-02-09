@@ -218,7 +218,9 @@ namespace ASP_cinema.Handlers
             {
                 Id_Diffusion = entity.Id_Diffusion,
                 DiffusionDate = entity.DiffusionDate,
-                DiffusionTime = entity.DiffusionTime
+                DiffusionTime = entity.DiffusionTime,
+                Id_CinemaRoom = entity.Id_CinemaRoom,
+                Id_Movie = entity.Id_Movie,
             };
         }
 
@@ -231,7 +233,9 @@ namespace ASP_cinema.Handlers
                 DiffusionDate = entity.DiffusionDate,
                 DiffusionTime = entity.DiffusionTime,
                 AudioLang = entity.AudioLang,
-                SubTitleLang = entity.SubTitleLang
+                SubTitleLang = entity.SubTitleLang,
+                Id_CinemaRoom = entity.Id_CinemaRoom,
+                Id_Movie = entity.Id_Movie,
             };
         }
 

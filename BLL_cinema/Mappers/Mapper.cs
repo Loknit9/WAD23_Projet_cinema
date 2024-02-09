@@ -115,7 +115,9 @@ namespace BLL_cinema.Mappers
                 entity.DiffusionDate,
                 entity.DiffusionTime,
                 entity.AudioLang,
-                entity.SubTitleLang);
+                entity.SubTitleLang,
+                entity.Id_Movie,
+                entity.Id_CinemaRoom);
         }
 
         public static DAL.Diffusion ToDAL(this BLL.Diffusion entity)
@@ -127,7 +129,9 @@ namespace BLL_cinema.Mappers
                 DiffusionDate = entity.DiffusionDate,
                 DiffusionTime = entity.DiffusionTime,
                 AudioLang = entity.AudioLang,
-                SubTitleLang = entity.SubTitleLang
+                SubTitleLang = entity.SubTitleLang,
+                Id_Movie = entity.Id_Movie,
+                Id_CinemaRoom = entity.Id_CinemaRoom
             };
         }
 

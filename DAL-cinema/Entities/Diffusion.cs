@@ -13,6 +13,10 @@ namespace DAL_cinema.Entities
         public TimeSpan DiffusionTime { get; set; }
         public string AudioLang {  get; set; }
         public string? SubTitleLang { get; set; }
+        public int Id_Movie {  get; set; }
+        public int Id_CinemaRoom { get; set;}
+
+
 
     }
 }
