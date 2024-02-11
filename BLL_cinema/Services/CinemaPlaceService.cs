@@ -12,35 +12,39 @@ namespace BLL_cinema.Services
 {
     public class CinemaPlaceService : ICinemaPlaceRepository<CinemaPlace>
     {
-        private readonly ICinemaPlaceRepository<DAL.CinemaPlace> _repository;
-        public CinemaPlaceService(ICinemaPlaceRepository<DAL.CinemaPlace> repository)
+        private readonly ICinemaPlaceRepository<DAL.CinemaPlace> _cinemaPlaceRepository;
+        private readonly ICinemaRoomRepository<DAL.CinemaRoom> _cinemaRoomRepository;
+        public CinemaPlaceService(ICinemaPlaceRepository<DAL.CinemaPlace> cinemaPlaceRepository, ICinemaRoomRepository<DAL.CinemaRoom> cinemaRoomRepository)
         {
-            _repository = repository;
+            _cinemaPlaceRepository = cinemaPlaceRepository;
+            _cinemaRoomRepository = cinemaRoomRepository;
         }
 
         public IEnumerable<CinemaPlace> Get()
         {
-            return _repository.Get().Select(d => d.ToBLL());
+            return _cinemaPlaceRepository.Get().Select(d => d.ToBLL());
         }
 
         public CinemaPlace Get (int id)
         {
-            return _repository.Get(id).ToBLL();
+            CinemaPlace entity = _cinemaPlaceRepository.Get(id).ToBLL();
+            entity.AddGroupCinemaRoom(_cinemaRoomRepository.GetByCinemaPlace(id).Select(d => d.ToBLL()));
+            return entity;
         }
 
         public int Insert(CinemaPlace data)
         {
-            return _repository.Insert(data.ToDAL());
+            return _cinemaPlaceRepository.Insert(data.ToDAL());
         }
 
         public void Update(CinemaPlace data)
         {
-            _repository.Update(data.ToDAL());
+            _cinemaPlaceRepository.Update(data.ToDAL());
         }
 
         public void Delete (int id)
         {
-            _repository.Delete(id);
+            _cinemaPlaceRepository.Delete(id);
         }
 
     }

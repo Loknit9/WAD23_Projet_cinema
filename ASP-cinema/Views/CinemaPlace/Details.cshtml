@@ -40,3 +40,14 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id_CinemaPlace })
     <a asp-action="Index">Voir la liste</a>
 </div>
+
+<h4>@Html.DisplayNameFor(model => model.CinemaRooms)</h4>
+@if(Model.CinemaRooms.Count() > 0)
+{
+    <partial name="_CinemaRoomListPartialView" model="Model.CinemaRooms" />
+}
+
+else
+{
+    <p>Pas de salle pour ce cinema</p>
+}

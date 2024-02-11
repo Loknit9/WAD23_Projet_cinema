@@ -10,6 +10,7 @@ namespace ASP_cinema.Controllers
     public class CinemaRoomController : Controller
     {
         private readonly ICinemaRoomRepository<CinemaRoom> _cinemaRoomRepository;
+        private readonly ICinemaPlaceRepository<CinemaPlace> _cinemaPlaceRepository;
         public CinemaRoomController(ICinemaRoomRepository<CinemaRoom> cinemaRoomRepository)
         {
             _cinemaRoomRepository = cinemaRoomRepository;

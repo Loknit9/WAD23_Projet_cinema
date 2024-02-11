@@ -79,7 +79,7 @@ namespace DAL_cinema.Services
                 using (SqlCommand command = connection.CreateCommand())
                 {
                     command.CommandText = "SELECT * FROM [CinemaRoom] WHERE [Id_CinemaPlace] = @id";
-                    command.Parameters.AddWithValue("Id_CinemaPlace", id);
+                    command.Parameters.AddWithValue("id", id);
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())
                     {

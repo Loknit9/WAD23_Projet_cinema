@@ -40,5 +40,10 @@ namespace BLL_cinema.Services
         {
             _repository.Delete(id);
         }
+
+        public IEnumerable<CinemaRoom> GetByCinemaPlace (int id)
+        {
+            return _repository.GetByCinemaPlace(id).Select(d => d.ToBLL());
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using Microsoft.AspNetCore.Mvc;
+using ASP_cinema.Models.CinemaRoom;
 
 namespace ASP_cinema.Models.CinemaPlace
 {
@@ -21,5 +22,9 @@ namespace ASP_cinema.Models.CinemaPlace
 
         [DisplayName("Numero")]
         public string Number { get; set; }
+
+        [ScaffoldColumn(false)]
+        [DisplayName("Salles")]
+        public IEnumerable<CinemaRoomListItemViewModel> CinemaRooms { get; set; }
     }
 }

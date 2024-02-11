@@ -32,6 +32,7 @@ namespace ASP_cinema.Handlers
                 City = entity.City,
                 Street = entity.Street,
                 Number = entity.Number,
+                CinemaRooms = entity.CinemaRooms.Select(d => d.ToListItem())
             };
         }
 
@@ -84,6 +85,8 @@ namespace ASP_cinema.Handlers
                 Number = entity.Number,
             };
         }
+
+
 
 
         #endregion
