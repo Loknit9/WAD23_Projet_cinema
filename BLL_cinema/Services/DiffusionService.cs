@@ -15,10 +15,12 @@ namespace BLL_cinema.Services
     {
 
         private readonly IDiffusionRepository<DAL.Diffusion> _repository;
+        private readonly ICinemaRoomRepository<DAL.CinemaRoom> _cinemaRoomRepository;
 
-        public DiffusionService(IDiffusionRepository<DAL.Diffusion> repository)
+        public DiffusionService(IDiffusionRepository<DAL.Diffusion> repository, ICinemaRoomRepository<DAL.CinemaRoom> cinemaRoomRepository)
         {
             _repository = repository;
+            _cinemaRoomRepository = cinemaRoomRepository;
         }
         public IEnumerable<Diffusion> Get()
         {
@@ -30,7 +32,6 @@ namespace BLL_cinema.Services
             return _repository.Get(id).ToBLL();
         }
 
-       
 
         public int Insert(Diffusion data)
         {
@@ -47,9 +48,14 @@ namespace BLL_cinema.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Diffusion> GetByCinemaRoom(int id)
+        public IEnumerable<Diffusion> GetByCinemaPlace(int id)
         {
-            return _repository.GetByCinemaRoom(id).Select(d => d.ToBLL());
+            return _repository.GetByCinemaPlace(id).Select(d =>
+            {
+                Diffusion result = d.ToBLL();
+                result.CinemaRoom = _cinemaRoomRepository.Get(result.Id_CinemaRoom).ToBLL();
+                return result;
+            });
         }
     }
 }

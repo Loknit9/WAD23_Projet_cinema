@@ -17,5 +17,7 @@ namespace DAL_cinema.Entities
         public bool Can4DX { get; set; }
 
         public int Id_CinemaPlace { get; set; }
+
+        public CinemaPlace CinemaPlace { get; set; }
     }
 }

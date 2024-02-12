@@ -25,6 +25,6 @@ namespace ASP_cinema.Models.Diffusion
         [DisplayName("Salle")]
         [HiddenInput]
         public int Id_CinemaRoom { get; set; }
-
+        public int NbCinemaRoom { get; internal set; }
     }
 }

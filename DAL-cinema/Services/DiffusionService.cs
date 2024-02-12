@@ -71,18 +71,22 @@ namespace DAL_cinema.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Diffusion> GetByCinemaRoom(int id)
+        public IEnumerable<Diffusion> GetByCinemaPlace(int id)
         {
             using(SqlConnection connection = new SqlConnection(_connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                  {
-                    command.CommandText = "SELECT * FROM    [diffusion] WHERE [section_id] = @id";
-                    command.Parameters.AddWithValue("id", id);
+                    command.CommandText = "SP_Diffusion_GetByCinemaPlace";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("Id_cinemaPlace", id);
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        while (reader.Read()) yield return reader.ToDiffusion();
+                        while (reader.Read())
+                        {
+                            yield return reader.ToDiffusion();
+                        }
                     }
 
                 }

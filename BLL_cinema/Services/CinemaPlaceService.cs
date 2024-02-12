@@ -14,10 +14,12 @@ namespace BLL_cinema.Services
     {
         private readonly ICinemaPlaceRepository<DAL.CinemaPlace> _cinemaPlaceRepository;
         private readonly ICinemaRoomRepository<DAL.CinemaRoom> _cinemaRoomRepository;
-        public CinemaPlaceService(ICinemaPlaceRepository<DAL.CinemaPlace> cinemaPlaceRepository, ICinemaRoomRepository<DAL.CinemaRoom> cinemaRoomRepository)
+        private readonly IDiffusionRepository<DAL.CinemaRoom> _diffusionRepository;
+        public CinemaPlaceService(ICinemaPlaceRepository<DAL.CinemaPlace> cinemaPlaceRepository, ICinemaRoomRepository<DAL.CinemaRoom> cinemaRoomRepository, IDiffusionRepository<DAL.CinemaRoom> diffusionRepository)
         {
             _cinemaPlaceRepository = cinemaPlaceRepository;
             _cinemaRoomRepository = cinemaRoomRepository;
+            _diffusionRepository = diffusionRepository;
         }
 
         public IEnumerable<CinemaPlace> Get()
@@ -28,7 +30,9 @@ namespace BLL_cinema.Services
         public CinemaPlace Get (int id)
         {
             CinemaPlace entity = _cinemaPlaceRepository.Get(id).ToBLL();
-            entity.AddGroupCinemaRoom(_cinemaRoomRepository.GetByCinemaPlace(id).Select(d => d.ToBLL()));
+            IEnumerable<Diffusion> diffusions = _diffusionRepository.GetByCinemaPlace(id);
+            entity.AddGroupDiffusions(diffusions);
+
             return entity;
         }
 

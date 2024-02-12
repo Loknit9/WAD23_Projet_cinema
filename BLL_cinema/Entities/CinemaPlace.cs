@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL_cinema.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace BLL_cinema.Entities
     public class CinemaPlace
     {
         private List<CinemaRoom> _cinemarooms;
+        private List<Diffusion> _diffusions;
 
         public int Id_CinemaPlace { get; private set; }
         public string Name { get; private set;}
@@ -25,6 +27,14 @@ namespace BLL_cinema.Entities
             get
             {
                 return _cinemarooms?.ToArray() ?? new CinemaRoom[0];
+            }
+        }
+
+        public Diffusion[] Diffusions
+        {
+            get
+            {
+                return _diffusions?.ToArray() ?? new Diffusion[0];
             }
         }
 
@@ -55,6 +65,23 @@ namespace BLL_cinema.Entities
                 {
                     AddCinemaRoom(room);
                 }
+            }
+        }
+
+        public void AddDiffusion(Diffusion diffusion)
+        {
+            _diffusions ??= new List<Diffusion>();
+            if (diffusion is null) throw new ArgumentNullException(nameof(diffusion));
+            if (_diffusions.Contains(diffusion)) throw new ArgumentException(nameof(diffusion), $"la diffusion {diffusion.Id_Diffusion} est déjà dans la liste.");
+            _diffusions.Add(diffusion);
+        }
+
+        public void AddGroupDiffusions(IEnumerable<Diffusion> diffusions)
+        {
+            if (diffusions is null) throw new ArgumentNullException(nameof(diffusions));
+            foreach (Diffusion diffusion in diffusions)
+            {
+                AddDiffusion(diffusion);
             }
         }
 

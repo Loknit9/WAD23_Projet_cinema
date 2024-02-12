@@ -32,7 +32,8 @@ namespace ASP_cinema.Handlers
                 City = entity.City,
                 Street = entity.Street,
                 Number = entity.Number,
-                CinemaRooms = entity.CinemaRooms.Select(d => d.ToListItem())
+                CinemaRooms = entity.CinemaRooms.Select(d => d.ToListItem()),
+                Diffusions = entity.Diffusions.Select(d => d.ToListItem())
             };
         }
 
@@ -222,7 +223,7 @@ namespace ASP_cinema.Handlers
                 Id_Diffusion = entity.Id_Diffusion,
                 DiffusionDate = entity.DiffusionDate,
                 DiffusionTime = entity.DiffusionTime,
-                Id_CinemaRoom = entity.Id_CinemaRoom,
+                NbCinemaRoom = entity.CinemaRoom.Number,
                 Id_Movie = entity.Id_Movie,
             };
         }

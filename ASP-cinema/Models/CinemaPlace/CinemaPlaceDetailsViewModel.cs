@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using Microsoft.AspNetCore.Mvc;
 using ASP_cinema.Models.CinemaRoom;
+using ASP_cinema.Models.Diffusion;
 
 namespace ASP_cinema.Models.CinemaPlace
 {
@@ -26,5 +27,8 @@ namespace ASP_cinema.Models.CinemaPlace
         [ScaffoldColumn(false)]
         [DisplayName("Salles")]
         public IEnumerable<CinemaRoomListItemViewModel> CinemaRooms { get; set; }
+
+        [DisplayName("Diffusion")]
+        public IEnumerable<DiffusionListItemViewModel> Diffusions { get; set; }
     }
 }

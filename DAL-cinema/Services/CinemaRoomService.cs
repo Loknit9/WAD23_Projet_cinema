@@ -72,7 +72,7 @@ namespace DAL_cinema.Services
 
 
         // Obtenir la liste des salles d'un cinema
-        public IEnumerable<CinemaRoom> GetByCinemaPlace(int id)
+        public IEnumerable<CinemaRoom> GetByCinema(int id)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {

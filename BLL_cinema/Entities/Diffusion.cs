@@ -22,7 +22,8 @@ namespace BLL_cinema.Entities
 
         public int Id_CinemaRoom { get; private set; }
 
-        public CinemaRoom CinemaRoom { get; private set; }
+        public CinemaRoom CinemaRoom { get; set; }
+
 
 
         public Diffusion(int id_diffusion, DateTime diffusiondate, TimeSpan diffusiontime, string audioLang, string? subtitlelang, int id_Movie, int id_CinemaRoom)
@@ -36,17 +37,6 @@ namespace BLL_cinema.Entities
             Id_CinemaRoom = id_CinemaRoom;
         }
 
-        public Diffusion(int id_diffusion, DateTime diffusiondate, TimeSpan diffusiontime, string audioLang, string? subtitlelang, int id_Movie, CinemaRoom CinemaRoom)
-        {
-            Id_Diffusion = id_diffusion;
-            DiffusionDate = diffusiondate;
-            DiffusionTime = diffusiontime;
-            AudioLang = audioLang;
-            SubTitleLang = subtitlelang;
-            Id_Movie = id_Movie;
-            CinemaRoom = CinemaRoom;
-            if (!(CinemaRoom is null)) Id_CinemaRoom = CinemaRoom.Id_CinemaRoom;
-        }
 
     } 
 }
