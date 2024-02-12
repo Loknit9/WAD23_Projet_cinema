@@ -12,38 +12,42 @@ namespace BLL_cinema.Services
 {
     public class CinemaRoomService : ICinemaRoomRepository<CinemaRoom>
     {
-        private readonly ICinemaRoomRepository<DAL.CinemaRoom> _repository;
-        public CinemaRoomService(ICinemaRoomRepository<DAL.CinemaRoom> repository)
+        private readonly ICinemaRoomRepository<DAL.CinemaRoom> _cinemaRoomRepository;
+        private readonly IDiffusionRepository<DAL.Diffusion> _diffusionRepository;
+        public CinemaRoomService(ICinemaRoomRepository<DAL.CinemaRoom> cinemaRoomRepository, IDiffusionRepository<DAL.Diffusion> diffusionRepository)
         {
-            _repository = repository;
+            _cinemaRoomRepository = cinemaRoomRepository;
+            _diffusionRepository = diffusionRepository;
         }
 
         public IEnumerable<CinemaRoom> Get()
         {
-            return _repository.Get().Select(d => d.ToBLL());
+            return _cinemaRoomRepository.Get().Select(d => d.ToBLL());
         }
 
         public CinemaRoom Get(int id)
         {
-            return _repository.Get(id).ToBLL();
+            CinemaRoom entity = _cinemaRoomRepository.Get(id).ToBLL();
+            entity.AddGroupDiffusions(_diffusionRepository.GetByCinemaRoom(id).Select(d => d.ToBLL()));
+            return entity;
         }
 
         public int Insert(CinemaRoom data)
         {
-            return _repository.Insert(data.ToDAL());
+            return _cinemaRoomRepository.Insert(data.ToDAL());
         }
         public void Update(CinemaRoom data)
         {
-            _repository.Update(data.ToDAL());
+            _cinemaRoomRepository.Update(data.ToDAL());
         }
         public void Delete(int id)
         {
-            _repository.Delete(id);
+            _cinemaRoomRepository.Delete(id);
         }
 
         public IEnumerable<CinemaRoom> GetByCinemaPlace (int id)
         {
-            return _repository.GetByCinemaPlace(id).Select(d => d.ToBLL());
+            return _cinemaRoomRepository.GetByCinemaPlace(id).Select(d => d.ToBLL());
         }
     }
 }

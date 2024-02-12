@@ -24,7 +24,7 @@ namespace BLL_cinema.Entities
         {
             get
             {
-                return _cinemarooms.ToArray() ?? new CinemaRoom[0];
+                return _cinemarooms?.ToArray() ?? new CinemaRoom[0];
             }
         }
 

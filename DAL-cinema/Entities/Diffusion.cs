@@ -16,7 +16,5 @@ namespace DAL_cinema.Entities
         public int Id_Movie {  get; set; }
         public int Id_CinemaRoom { get; set;}
 
-
-
     }
 }

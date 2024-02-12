@@ -47,9 +47,9 @@ namespace BLL_cinema.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Diffusion> GetByCinemaPlace(int id)
+        public IEnumerable<Diffusion> GetByCinemaRoom(int id)
         {
-            throw new NotImplementedException();
+            return _repository.GetByCinemaRoom(id).Select(d => d.ToBLL());
         }
     }
 }
