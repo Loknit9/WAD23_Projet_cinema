@@ -48,7 +48,19 @@ namespace BLL_cinema.Entities
             Number = number;
         }
 
-        public void AddCinemaRoom (CinemaRoom cinemaroom)
+        public CinemaPlace(List<Diffusion> diffusions, List<CinemaRoom> cinemaRooms, int id_CinemaPlace, string name, string city, string street, string number)
+        {
+            _diffusions = diffusions;
+            _cinemarooms = cinemaRooms;
+            Id_CinemaPlace = id_CinemaPlace;
+            Name = name;
+            City = city;
+            Street = street;
+            Number = number;
+        }
+
+
+            public void AddCinemaRoom (CinemaRoom cinemaroom)
         {
             _cinemarooms ??= new List<CinemaRoom> ();
             if(cinemaroom is null) throw new ArgumentNullException(nameof(cinemaroom));
@@ -56,6 +68,7 @@ namespace BLL_cinema.Entities
             if ((!(cinemaroom.CinemaPlace is null) && cinemaroom.CinemaPlace != this) || cinemaroom.Id_CinemaPlace != this.Id_CinemaPlace) throw new ArgumentException(nameof(cinemaroom), $"la salle {cinemaroom.Id_CinemaRoom} est déjà reprise un autre cinéma.");
             _cinemarooms.Add(cinemaroom);
         }
+
 
         public void AddGroupCinemaRoom(IEnumerable<CinemaRoom> cinemarooms)
         {

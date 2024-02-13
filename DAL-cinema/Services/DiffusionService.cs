@@ -79,7 +79,7 @@ namespace DAL_cinema.Services
                  {
                     command.CommandText = "SP_Diffusion_GetByCinemaPlace";
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("Id_cinemaPlace", id);
+                    command.Parameters.AddWithValue("id_cinemaPlace", id);
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -91,6 +91,11 @@ namespace DAL_cinema.Services
 
                 }
             }
+        }
+
+        public IEnumerable<Diffusion> GetByMovie(int id_movie)
+        {
+            throw new NotImplementedException();
         }
     }
 }

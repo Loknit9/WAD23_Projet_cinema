@@ -57,5 +57,11 @@ namespace BLL_cinema.Services
                 return result;
             });
         }
+
+
+        IEnumerable<Diffusion> IDiffusionRepository<Diffusion>.GetByMovie(int id_movie)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

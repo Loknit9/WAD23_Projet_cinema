@@ -8,6 +8,6 @@ namespace Shared.Repositories
 {
     public interface ICinemaRoomRepository<TEntity> : ICRUDRepository<TEntity, int> where TEntity : class
     {
-        public IEnumerable<TEntity> GetByCinema(int id);
+        public IEnumerable<TEntity> GetByCinema(int id_cinemaRoom);
     }
 }
