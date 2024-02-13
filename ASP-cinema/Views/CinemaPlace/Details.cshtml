@@ -1,5 +1,6 @@
 ﻿@model CinemaPlaceDetailsViewModel;
 @using ASP_cinema.Models.CinemaPlace;
+@using ASP_cinema.Models.Diffusion;
 
 @{
     ViewData["Title"] = "Details";
@@ -50,4 +51,16 @@
 else
 {
     <p>Pas de salle pour ce cinema</p>
+}
+
+
+<h4>@Html.DisplayNameFor(model => model.Diffusions)</h4>
+@if (Model.Diffusions.Count() > 0)
+{
+    <partial name="_diffusionListPartialView" model="Model.Diffusions" />
+}
+
+else
+{
+    <p>Pas de diffusion pour ce cinema</p>
 }

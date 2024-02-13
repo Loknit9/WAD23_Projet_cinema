@@ -31,8 +31,6 @@ namespace BLL_cinema.Services
         {
             CinemaPlace entity = _cinemaPlaceRepository.Get(id).ToBLL();
             entity.AddGroupCinemaRoom(_cinemaRoomRepository.GetByCinema(id).Select(d => d.ToBLL()));
-            return entity;
-
             entity.AddGroupDiffusions(_diffusionRepository.GetByCinemaPlace(id).Select (d => d.ToBLL()));
             return entity;
         }
@@ -46,7 +44,7 @@ namespace BLL_cinema.Services
         {
             _cinemaPlaceRepository.Update(data.ToDAL());
         }
-
+        
         public void Delete (int id)
         {
             _cinemaPlaceRepository.Delete(id);

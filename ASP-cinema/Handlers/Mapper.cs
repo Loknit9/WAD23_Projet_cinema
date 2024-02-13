@@ -223,7 +223,7 @@ namespace ASP_cinema.Handlers
                 Id_Diffusion = entity.Id_Diffusion,
                 DiffusionDate = entity.DiffusionDate,
                 DiffusionTime = entity.DiffusionTime,
-                NbCinemaRoom = entity.CinemaRoom.Number,
+                Id_CinemaRoom = entity.Id_CinemaRoom,
                 Id_Movie = entity.Id_Movie,
             };
         }

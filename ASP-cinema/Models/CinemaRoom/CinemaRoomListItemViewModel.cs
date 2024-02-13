@@ -13,7 +13,7 @@ namespace ASP_cinema.Models.CinemaRoom
 
         public int Id_CinemaRoom { get; set; }
 
-        [DisplayName("Numéro de Salle")]
+        [DisplayName("Salle")]
         public int Number { get; set; }
 
         [DisplayName("Projection 3D")]
