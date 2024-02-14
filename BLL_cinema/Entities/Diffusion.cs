@@ -20,7 +20,9 @@ namespace BLL_cinema.Entities
         public int Id_Movie {  get; private set; }
 
         public int Id_CinemaRoom { get; private set; }
-        public CinemaRoom CinemaRoom { get; internal set; }
+        public CinemaRoom CinemaRoom { get;  set; }
+
+        public Movie Movie { get;  set; }
 
         public Diffusion(int id_diffusion, DateTime diffusiondate, TimeSpan diffusiontime, string audioLang, string? subtitlelang, int id_Movie, int id_CinemaRoom)
         {

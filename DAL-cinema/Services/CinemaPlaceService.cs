@@ -43,15 +43,17 @@ namespace DAL_cinema.Services
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                using SqlCommand command = connection.CreateCommand();
-                command.CommandText = "SP_CinemaPlace_GetById";
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("Id_cinemaplace", id);
-                connection.Open();
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqlCommand command = connection.CreateCommand())
                 {
-                    if (reader.Read()) return reader.ToCinemaPlace();
-                    throw new ArgumentException(nameof(id), $"L'identifiant {id} n'existe pas dans la base de données.");
+                    command.CommandText = "SP_CinemaPlace_GetById";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("Id_cinemaplace", id);
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read()) return reader.ToCinemaPlace();
+                        throw new ArgumentException(nameof(id), $"L'identifiant {id} n'existe pas dans la base de données.");
+                    }
                 }
             }
         }

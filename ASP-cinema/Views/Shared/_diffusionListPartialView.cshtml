@@ -18,6 +18,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Id_CinemaRoom)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.titre)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -36,10 +39,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Id_CinemaRoom)
             </td>
-            
+            <td>
+                @Html.DisplayFor(modelItem => item.titre)
+            </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Id_Diffusion }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id_Diffusion  }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>

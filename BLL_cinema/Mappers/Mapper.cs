@@ -12,7 +12,7 @@ namespace BLL_cinema.Mappers
     internal static class Mapper
     {
         #region CinemaPlace
-        public static BLL.CinemaPlace ToBLL( this DAL.CinemaPlace entity)
+        public static BLL.CinemaPlace ToBLL(this DAL.CinemaPlace entity)
         {
             if (entity is null) return null;
             return new BLL.CinemaPlace(
@@ -52,7 +52,7 @@ namespace BLL_cinema.Mappers
                 entity.Duration);
         }
 
-        public static DAL. Movie ToDAL(this BLL.Movie entity)
+        public static DAL.Movie ToDAL(this BLL.Movie entity)
         {
             if (entity is null) return null;
             return new DAL.Movie()
@@ -100,7 +100,7 @@ namespace BLL_cinema.Mappers
                 Id_CinemaPlace = entity.Id_CinemaPlace
 
             };
-                
+
         }
 
         #endregion
@@ -134,6 +134,17 @@ namespace BLL_cinema.Mappers
                 Id_CinemaRoom = entity.Id_CinemaRoom
             };
         }
+
+        #endregion
+
+        #region Langue
+
+        //private static BLL.Language? toLanguageSubTitlleLang(string subTitleLang)
+        //{
+        //    if (subTitleLang is null) return null;
+
+        //    return Enum.Parse<BLL.Language>(subTitleLang);
+        //}
 
         #endregion
     }

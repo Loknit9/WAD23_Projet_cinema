@@ -8,5 +8,6 @@ namespace Shared.Repositories
 {
     public interface IMovieRepository<TEntity> : ICRUDRepository<TEntity, int> where TEntity : class
     {
+
     }
 }

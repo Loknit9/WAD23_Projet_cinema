@@ -95,7 +95,22 @@ namespace DAL_cinema.Services
 
         public IEnumerable<Diffusion> GetByMovie(int id_movie)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM [Diffusion] WHERE [Id_Movie]  = @id";
+                    command.Parameters.AddWithValue("id", id_movie);
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yield return reader.ToDiffusion();
+                        }
+                    }
+                }
+            }
         }
     }
 }

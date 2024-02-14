@@ -25,5 +25,9 @@ namespace ASP_cinema.Models.Diffusion
         [DisplayName("Salle")]
         [HiddenInput]
         public int Id_CinemaRoom { get; set; }
+
+        [DisplayName("Film")]
+
+        public string titre {  get; set; }
     }
 }

@@ -13,6 +13,7 @@ namespace BLL_cinema.Services
     public class MovieService : IMovieRepository<Movie>
     {
         private readonly IMovieRepository<DAL.Movie> _repository;
+        private readonly IDiffusionRepository<DAL.Diffusion> _diffusionRepository;
 
         public MovieService(IMovieRepository<DAL.Movie> repository)
         {
@@ -26,7 +27,10 @@ namespace BLL_cinema.Services
 
         public Movie Get (int id)
         {
-            return _repository.Get(id).ToBLL();
+            Movie entity = _repository.Get(id).ToBLL();
+            IEnumerable<Diffusion> diffusion = _diffusionRepository.GetByMovie(id);
+            entity.AddGroupDiffusions(diffusion);
+            return entity;
         }
 
         public int Insert (Movie data)
