@@ -2,10 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL_cinema.Mappers
 {
@@ -53,7 +50,7 @@ namespace DAL_cinema.Mappers
                 ScreenWidth = (int)record["ScreenWidth"],
                 ScreenHeight = (int)record["ScreenHeight"],
                 Can3D = (bool)record["Can3D"],
-                Can4DX = (bool)record["Can4DX"],
+                 Can4DX = (bool)record["Can4DX"],
                 Id_CinemaPlace = (int)record["Id_CinemaPlace"]
 
             };

@@ -7,15 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using BLL_cinema.Entities;
 using BLL_cinema.Mappers;
-
 namespace BLL_cinema.Services
 {
     public class CinemaPlaceService : ICinemaPlaceRepository<CinemaPlace>
     {
         private readonly ICinemaPlaceRepository<DAL.CinemaPlace> _cinemaPlaceRepository;
-        private readonly ICinemaRoomRepository<DAL.CinemaRoom> _cinemaRoomRepository;
-        private readonly IDiffusionRepository<DAL.Diffusion> _diffusionRepository;
-        public CinemaPlaceService(ICinemaPlaceRepository<DAL.CinemaPlace> cinemaPlaceRepository, ICinemaRoomRepository<DAL.CinemaRoom> cinemaRoomRepository, IDiffusionRepository<DAL.Diffusion> diffusionRepository, IMovieRepository<DAL.Movie> movieRepository)
+        private readonly ICinemaRoomRepository<CinemaRoom> _cinemaRoomRepository;
+        private readonly IDiffusionRepository<Diffusion> _diffusionRepository;
+        public CinemaPlaceService(ICinemaPlaceRepository<DAL.CinemaPlace> cinemaPlaceRepository, ICinemaRoomRepository<CinemaRoom> cinemaRoomRepository, IDiffusionRepository<Diffusion> diffusionRepository, IMovieRepository<DAL.Movie> movieRepository)
         {
             _cinemaPlaceRepository = cinemaPlaceRepository;
             _cinemaRoomRepository = cinemaRoomRepository;
@@ -27,14 +26,15 @@ namespace BLL_cinema.Services
             return _cinemaPlaceRepository.Get().Select(d => d.ToBLL());
         }
 
-        public CinemaPlace Get (int id)
+        public CinemaPlace Get(int id)
         {
 
             CinemaPlace entity = _cinemaPlaceRepository.Get(id).ToBLL();
-            entity.AddGroupDiffusions(_diffusionRepository.GetByCinemaPlace(id).Select(d => d.ToBLL()));
+            entity.AddGroupDiffusions(_diffusionRepository.GetByCinemaPlace(id));
+            entity.AddGroupCinemaRoom(_cinemaRoomRepository.GetByCinema(id));
 
-            entity.AddGroupCinemaRoom(_cinemaRoomRepository.GetByCinema(id).Select(d => d.ToBLL()));
-                     
+
+
             return entity;
         }
 
@@ -47,8 +47,8 @@ namespace BLL_cinema.Services
         {
             _cinemaPlaceRepository.Update(data.ToDAL());
         }
-        
-        public void Delete (int id)
+
+        public void Delete(int id)
         {
             _cinemaPlaceRepository.Delete(id);
         }

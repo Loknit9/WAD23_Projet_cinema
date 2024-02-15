@@ -24,7 +24,7 @@ namespace ASP_cinema.Models.CinemaPlace
         [DisplayName("Numero")]
         public string Number { get; set; }
 
-        [ScaffoldColumn(false)]
+        
         [DisplayName("Salles")]
         public IEnumerable<CinemaRoomListItemViewModel> CinemaRooms { get; set; }
 

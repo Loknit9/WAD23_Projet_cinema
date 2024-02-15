@@ -28,6 +28,8 @@ namespace ASP_cinema.Models.Diffusion
 
         [DisplayName("Film")]
 
+       
+
         public string titre {  get; set; }
     }
 }

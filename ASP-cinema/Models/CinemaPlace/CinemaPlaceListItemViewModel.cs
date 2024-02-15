@@ -8,7 +8,7 @@ namespace ASP_cinema.Models.CinemaPlace
     {
         [HiddenInput]
         [Required]
-        [ScaffoldColumn(false)]
+   
 
         public int Id_CinemaPlace { get; set; }
 
