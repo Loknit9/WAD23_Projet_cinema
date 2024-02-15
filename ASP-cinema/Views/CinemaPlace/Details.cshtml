@@ -38,11 +38,12 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_CinemaPlace })
+    @* @Html.ActionLink("Edit", "Edit", new { id = Model.Id_CinemaPlace }) *@
     <a asp-action="Index">Voir la liste</a>
 </div>
 
-
+<br>
+<br>
 
 <h4>@Html.DisplayNameFor(model => model.Diffusions)</h4>
 @if (Model.Diffusions.Count() > 0)

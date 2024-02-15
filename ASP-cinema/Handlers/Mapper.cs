@@ -225,7 +225,14 @@ namespace ASP_cinema.Handlers
                 DiffusionTime = entity.DiffusionTime,
                 Id_CinemaRoom = entity.Id_CinemaRoom,
                 Id_Movie = entity.Id_Movie,
-                titre = entity.Movie.Title
+                titre = entity.Movie.Title,
+                NumeroSalle = entity.CinemaRoom.Number,
+                Duree = entity.Movie.Duration,
+                Can3D = entity.CinemaRoom.Can3D,
+                Can4DX = entity.CinemaRoom.Can4DX,
+                SubTitle = entity.SubTitleLang,
+                Audiolang = entity.AudioLang
+
             };
         }
 
