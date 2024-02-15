@@ -28,8 +28,8 @@ namespace BLL_cinema.Services
         public Movie Get (int id)
         {
             Movie entity = _repository.Get(id).ToBLL();
-            IEnumerable<Diffusion> diffusion = _diffusionRepository.GetByMovie(id);
-            entity.AddGroupDiffusions(diffusion);
+            
+            //entity.AddGroupDiffusions(entity.Getdiffusion);
             return entity;
         }
 

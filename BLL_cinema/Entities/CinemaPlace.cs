@@ -33,19 +33,21 @@ namespace BLL_cinema.Entities
             }
         }
 
-        public Diffusion[] Diffusions
-        {
-            get
-            {
-                return _diffusions?.ToArray() ?? new Diffusion[0];
-            }
-        }
+      
 
         public Movie[] Movie
         {
             get
             {
                 return _movies?.ToArray() ?? new Movie[0];
+            }
+        }
+
+        public Diffusion[] Diffusions
+        {
+            get
+            {
+                return _diffusions?.ToArray() ?? new Diffusion[0];
             }
         }
 
@@ -108,6 +110,7 @@ namespace BLL_cinema.Entities
                 AddDiffusion(diffusion);
             }
         }
+
         public void AddMovie(Movie movie)
         {
             _movies ??= new List<Movie>();

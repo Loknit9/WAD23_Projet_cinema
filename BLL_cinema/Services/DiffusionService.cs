@@ -62,9 +62,16 @@ namespace BLL_cinema.Services
         }
 
 
-        IEnumerable<Diffusion> IDiffusionRepository<Diffusion>.GetByMovie(int id_movie)
+        public IEnumerable<Diffusion> GetByMovie(int id)
         {
-            throw new NotImplementedException();
+
+            return _diffusionRepository.GetByMovie(id).Select(d =>
+            {
+                Diffusion result = d.ToBLL();
+                result.Movie = _movieRepository.Get(result.Id_Movie).ToBLL();
+                result.CinemaRoom = _cinemaRoomRepository.Get(result.Id_CinemaRoom).ToBLL();
+                return result;
+            });
         }
     }
 }
