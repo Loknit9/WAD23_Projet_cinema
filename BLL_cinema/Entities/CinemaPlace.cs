@@ -111,23 +111,23 @@ namespace BLL_cinema.Entities
             }
         }
 
-        public void AddMovie(Movie movie)
-        {
-            _movies ??= new List<Movie>();
-            if (movie is null) throw new ArgumentNullException(nameof(movie));
-            if (_movies.Contains(movie)) throw new ArgumentException(nameof(movie), $"la diffusion {movie.Id_Movie} est déjà dans la liste.");
-            _movies.Add(movie);
-        }
+        //public void AddMovie(Movie movie)
+        //{
+        //    _movies ??= new List<Movie>();
+        //    if (movie is null) throw new ArgumentNullException(nameof(movie));
+        //    if (_movies.Contains(movie)) throw new ArgumentException(nameof(movie), $"la diffusion {movie.Id_Movie} est déjà dans la liste.");
+        //    _movies.Add(movie);
+        //}
 
-        public void AddGroupMovies(IEnumerable<Movie> movies)
-        {
-            if (movies is null) throw new ArgumentNullException(nameof(movies));
-            foreach (Movie movie in movies)
-            {
-                AddMovie(movie);
+        //public void AddGroupMovies(IEnumerable<Movie> movies)
+        //{
+        //    if (movies is null) throw new ArgumentNullException(nameof(movies));
+        //    foreach (Movie movie in movies)
+        //    {
+        //        AddMovie(movie);
 
-            }
+        //    }
 
-        }
+        //}
     }
 }

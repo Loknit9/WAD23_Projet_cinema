@@ -14,7 +14,7 @@ namespace BLL_cinema.Services
         private readonly ICinemaPlaceRepository<DAL.CinemaPlace> _cinemaPlaceRepository;
         private readonly ICinemaRoomRepository<CinemaRoom> _cinemaRoomRepository;
         private readonly IDiffusionRepository<Diffusion> _diffusionRepository;
-        public CinemaPlaceService(ICinemaPlaceRepository<DAL.CinemaPlace> cinemaPlaceRepository, ICinemaRoomRepository<CinemaRoom> cinemaRoomRepository, IDiffusionRepository<Diffusion> diffusionRepository, IMovieRepository<DAL.Movie> movieRepository)
+        public CinemaPlaceService(ICinemaPlaceRepository<DAL.CinemaPlace> cinemaPlaceRepository, ICinemaRoomRepository<CinemaRoom> cinemaRoomRepository, IDiffusionRepository<Diffusion> diffusionRepository)
         {
             _cinemaPlaceRepository = cinemaPlaceRepository;
             _cinemaRoomRepository = cinemaRoomRepository;
