@@ -97,10 +97,16 @@ namespace BLL_cinema.Entities
         public void ChoiceCinemaRoom(CinemaRoom cinemaroom)
         {
             if (cinemaroom is null) throw new ArgumentNullException(nameof(cinemaroom), "La salle est obligatoire.");
-            if (!(cinemaroom is null) && CinemaRoom != cinemaroom)
+            if (!(Cinemaroom is null) && CinemaRoom != cinemaroom)
             {
                 CinemaRoom.RemoveCinemaRoom(this);
                 CinemaRoom = null;
+            }
+            if (CinemaRoom is null)
+            {
+                CinemaRoom = cinemaroom;
+                Id_CinemaRoom = cinemaroom.Id_CinemaRoom;
+                cinemaroom.AddCinemaRoom(this);
             }
         }
 
