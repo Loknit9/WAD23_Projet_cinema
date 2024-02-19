@@ -15,5 +15,11 @@ namespace ASP_cinema.Models.CinemaPlace
 
         [DisplayName("Ville")]
         public string City { get; set; }
+
+        [DisplayName("Rue")]
+        public string Street { get; set; }
+
+        [DisplayName("Numero")]
+        public string Number { get; set; }
     }
 }

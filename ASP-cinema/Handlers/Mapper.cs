@@ -92,6 +92,19 @@ namespace ASP_cinema.Handlers
 
         #endregion
 
+        // menu déroulant la salle en fonction du cinéma
+
+        public static CinemaPlaceChoiceCinemaRoomForm ToChoiceCinemaRoom(this CinemaRoom entity)
+        {
+            if (entity is null) return null;
+            return new CinemaPlaceChoiceCinemaRoomForm()
+            {
+                Id_CinemaRoom = entity.Id_CinemaRoom,
+                Id_CinemaPlace = entity.Id_CinemaPlace
+
+            };
+        }
+
         #region Movie
 
         public static MovieListItemViewModel ToListItem(this Movie entity)
@@ -211,6 +224,8 @@ namespace ASP_cinema.Handlers
                 Can4DX = entity.Can4DX
             };
         }
+
+        
 
         #endregion
 

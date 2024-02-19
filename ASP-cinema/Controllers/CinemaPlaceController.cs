@@ -123,6 +123,14 @@ namespace ASP_cinema.Controllers
                 return View(model);
             }
         }
+
+        // Get: Choisir une salle dans le form pour créer une nouvelle diffusion
+        [HttpGet]
+        public IActionResult ChoiceCinemaRoom(int id)
+        {
+            CinemaPlaceChoiceCinemaRoomForm model = _cinemaPlaceRepository.Get(id).ToChoiceCinemaRoom();
+            if (model is null) throw new ArgumentOutOfRangeException(nameof(id), $"Pas de cinema avec cet Id {Id_CinemaPlace}.";
+        }
     }
     
 }
