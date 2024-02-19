@@ -92,18 +92,7 @@ namespace ASP_cinema.Handlers
 
         #endregion
 
-        // menu déroulant la salle en fonction du cinéma
-
-        public static CinemaPlaceChoiceCinemaRoomForm ToChoiceCinemaRoom(this CinemaRoom entity)
-        {
-            if (entity is null) return null;
-            return new CinemaPlaceChoiceCinemaRoomForm()
-            {
-                Id_CinemaRoom = entity.Id_CinemaRoom,
-                Id_CinemaPlace = entity.Id_CinemaPlace
-
-            };
-        }
+        
 
         #region Movie
 

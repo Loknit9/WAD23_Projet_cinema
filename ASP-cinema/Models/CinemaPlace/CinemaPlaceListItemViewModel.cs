@@ -8,9 +8,7 @@ namespace ASP_cinema.Models.CinemaPlace
     {
         [HiddenInput]
         [Required]
-   
-
-        public int Id_CinemaPlace { get; set; }
+         public int Id_CinemaPlace { get; set; }
 
         [DisplayName("Nom")]
         public string Name { get; set; }

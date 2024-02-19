@@ -33,7 +33,7 @@ namespace BLL_cinema.Entities
             }
         }
 
-      
+
 
         public Movie[] Movie
         {
@@ -94,15 +94,7 @@ namespace BLL_cinema.Entities
             }
         }
 
-        public void ChoiceCinemaRoom(CinemaRoom cinemaroom)
-        {
-            if (cinemaroom is null) throw new ArgumentNullException(nameof(cinemaroom), "La salle est obligatoire.");
-            if (!(cinemaroom is null) && CinemaRoom != cinemaroom)
-            {
-                CinemaRoom.RemoveCinemaRoom(this);
-                CinemaRoom = null;
-            }
-        }
+
 
         public void AddDiffusion(Diffusion diffusion)
         {
